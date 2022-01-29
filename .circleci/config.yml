@@ -9,16 +9,16 @@ jobs:
       cibw_build:
         type: string
         default: "cp37-*"
+        
+    machine:
+      image: ubuntu-2004:202101-01
+    resource_class: arm.medium
    
     steps:
       - checkout
       - run: git submodule sync
       - run: git submodule update --init
-      - run:
-          name: Build image
-          command: |
-            source .ci/ubuntu_ci.sh
-            update_version_metadata
+      
       - run:
           name: Install dependencies
           command: |
