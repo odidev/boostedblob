@@ -1,0 +1,12 @@
+language: python
+arch:
+  - amd64
+python:
+  - 3.8
+install:
+  - pip3 install boostedblob
+  - curl -sSL https://install.python-poetry.org | python3 -
+  - pip3 install poetry
+  - poetry install
+  - poetry shell
+script: BBB_TEST_LOCATIONS='' ./test.sh
